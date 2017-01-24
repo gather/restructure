@@ -21,7 +21,7 @@ class DecodeStream
     do (key) =>
       bytes = @TYPES[key.replace(/read|[BL]E/g, '')]
       this::[key] = ->
-        ret = @buffer[key](@pos)
+        ret = @buffer[key](@pos || 0)
         @pos += bytes
         return ret
 
